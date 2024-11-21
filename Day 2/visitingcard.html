@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fireworks Visiting Card</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #222;
+        }
+
+        .visiting-card {
+            width: 350px;
+            height: 200px;
+            border: 3px solid #fff;
+            border-radius: 15px;
+            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #1a1a1a, #333);
+            position: relative;
+            overflow: hidden;
+            color: #fff;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .visiting-card::before, .visiting-card::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffdd00, transparent);
+            animation: fireworks 1s infinite;
+            opacity: 0.8;
+        }
+
+        .visiting-card::before {
+            top: -10px;
+            left: -10px;
+            animation-delay: 0.2s;
+        }
+
+        .visiting-card::after {
+            bottom: -10px;
+            right: -10px;
+            animation-delay: 0.4s;
+        }
+
+        @keyframes fireworks {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+
+        .name {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ffdd00;
+            margin-bottom: 5px;
+        }
+
+        .title {
+            font-size: 18px;
+            color: #ffbb00;
+            margin-bottom: 15px;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="visiting-card">
+    <div class="name">Nandhu Fireworks</div>
+    <div class="title">Stall No:58</div>
+    <div class="contact-info">
+        <p>Email:nandhunuthnasree@gmail.com</p>
+        <p>Phone:8309590857</p>
+        <p>Website:</p><a href="https://www.indiamart.com/proddetail/fireworks-crackers-22895031291.html">View all kinds of crackers available in our store</a>
+    </div>
+</div>
+
+</body>
+</html>

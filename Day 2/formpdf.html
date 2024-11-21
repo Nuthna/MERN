@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <center>
+        <h1>Bank Account<br> Opening Form</h1><hr>
+    </center>
+      
+    <label for="full_name">Full Name:</label>
+    <input type="text" id="full_name" size="40px"><br><br>
+      
+    <label for="dob">DOB:</label>
+    <input type="date" id="dob"><br><br>
+      
+    <label for="email">Email ID:</label>
+    <input type="email" id="email" size="40px"><br><br>
+      
+    <label for="mobile">Mobile No:</label>
+    <input type="tel" id="mobile" size="20px"><br><br>
+      
+    <label for="address">Address:</label>
+    <input type="text" id="address" size="20px" style="height:60px"><br><br>
+      
+    <label>Do you have your identity proof?</label><br>
+    <input type="radio" id="identity_yes" name="identity" value="yes">
+    <label for="identity_yes">YES</label>&nbsp;
+    <input type="radio" id="identity_no" name="identity" value="no">
+    <label for="identity_no">NO</label><br><br>
+      
+    <label for="identity_number">Your identity proof number:</label>
+    <input type="tel" id="identity_number"><br><br>
+      
+    <label for="gender">Gender:</label><br>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>&nbsp;
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label><br><br>
+      
+    <label for="account_type">Account type:</label>&nbsp;
+    <select id="account_type" name="account_type">
+      <option value="Savings">Saving Account</option>
+      <option value="Current">Current Account</option>
+    </select><br><br>
+      
+    <h3>Terms & Conditions</h3>
+    <input type="checkbox" value="check"> I confirm that the details provided are correct </input><br>
+    <input type="checkbox" value="check"> I agree to the terms and conditions </input><br><br>
+      
+    <button onclick="generatePDF()">Submit</button>
+
+    <script>
+      function generatePDF() {
+        // Get form data using getElementById
+        const fullName = document.getElementById("full_name").value;
+        const dob = document.getElementById("dob").value;
+        const email = document.getElementById("email").value;
+        const mobile = document.getElementById("mobile").value;
+        const address = document.getElementById("address").value;
+        const identityProof = document.querySelector('input[name="identity"]:checked').value;
+        const identityNumber = document.getElementById("identity_number").value;
+        const gender = document.querySelector('input[name="gender"]:checked').value;
+        const accountType = document.getElementById("account_type").value;
+
+        // Create a new jsPDF instance
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        // Add text to the PDF
+        doc.text("Bank Account Opening Form", 10, 10);
+        doc.text(`Full Name: ${fullName}`, 10, 20);
+        doc.text(`DOB: ${dob}`, 10, 30);
+        doc.text(`Email ID: ${email}`, 10, 40);
+        doc.text(`Mobile No: ${mobile}`, 10, 50);
+        doc.text(`Address: ${address}`, 10, 60);
+        doc.text(`Identity Proof: ${identityProof}`, 10, 70);
+        doc.text(`Identity Number: ${identityNumber}`, 10, 80);
+        doc.text(`Gender: ${gender}`, 10, 90);
+        doc.text(`Account Type: ${accountType}`, 10, 100);
+
+        // Save the PDF
+        doc.save('Bank_Account_Opening_Form.pdf');
+      }
+    </script>
+</body>
+</html>

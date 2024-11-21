@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function verify(){
+            var field2= document.getElementById("field2").value;
+            var no = field2.length;
+            if(no>=8){
+                console.log("your pasword is valid")
+                // document.getElementById("para").innerHTML = "Your password is valid";
+                alert("your pasword is valid")
+            }
+
+            else{
+                console.log("your pasword is not valid")
+                // document.getElementById("para").innerHTML = "Your password is not valid";
+                alert("your pasword is invalid")
+            }
+          
+        }
+    </script>
+</head>
+<body>
+    <center><h1>Userprofile</center></h1>
+    <h3>Enter your Username:</h3>
+    <input id="field1" type="text" placeholder="enter your username"></input>
+    <h3>Enter your Password:</h3>
+    <input  id="field2" type="number" placeholder="enter your username"></input>
+    <input id="field3" type="button" value="Login" onclick="verify()" ></input>
+    <h3 id="para"></h3>
+</body>
+</html>
